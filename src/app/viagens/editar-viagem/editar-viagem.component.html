@@ -1,0 +1,269 @@
+<app-header></app-header>
+
+<div class="title-cadastro">
+  Editar Produto
+</div>
+
+
+<form [formGroup]="form">
+<div class="content-cadastro">
+  <div class="content-form-cadastro">
+    <div style="display: flex; align-items: flex-start; flex-direction: column; width: 100%; justify-content: flex-start; margin-left: 200px; margin-top: 20px; gap: 10px; margin-bottom: 20px;">
+      <div style="display: flex; align-items: center; gap: 10px ;">
+        <label class="switch">
+          <input formControlName="ativo" type="checkbox">
+          <span class="slider"></span>
+        </label>
+        <label for="">ativar?</label>
+      </div>
+    </div>
+    <div class="content-inputs">
+
+      <div class="input-label">
+        <label for="">Título</label>
+        <input type="text" formControlName="titulo">
+      </div>
+
+      <div class="input-label">
+        <label for="">Vagas</label>
+        <input type="number" formControlName="vagas">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Data de ida</label>
+        <input type="date" formControlName="data_ida">
+      </div>
+
+      <div class="input-label">
+        <label for="">Data de retorno</label>
+        <input type="date" formControlName="data_volta">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Whats do parceiro</label>
+        <input type="text" formControlName="whats_parceiro">
+      </div>
+
+      <div class="input-label">
+        <label for="">Tipo de negócio</label>
+        <select formControlName="tipo_negocio">
+          <option value="">Selecione uma opção</option>
+          <option value="Receptivo">Receptivo</option>
+          <option value="Circuito">Circuito</option>
+          <option value="Corporativo">Corporativo</option>
+          <option value="Eventos">Eventos</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Valor da parcela</label>
+        <input moneyMask type="text" formControlName="valor_parcela">
+      </div>
+
+      <div class="input-label">
+        <label for="">Taxa administrativa</label>
+        <input moneyMask type="text" formControlName="taxa_adm">
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Fornecedor</label>
+        <select formControlName="fornecedor">
+          <option value="">Selecione uma opção</option>
+          <option value="{{item.razao_social}}" *ngFor="let item of fornecedores">{{item.razao_social}}</option>
+        </select>
+      </div>
+
+      <div class="input-label">
+        <label for="">Markup</label>
+        <input moneyMask type="text" formControlName="markup">
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Parcelamento</label>
+        <input type="text" formControlName="parcelamento">
+      </div>
+
+      <div class="input-label">
+        <label for="">Preço</label>
+        <input moneyMask type="text" formControlName="preco">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Roteiro</label>
+        <quill-editor formControlName="roteiro" [styles]="{height: '250px'}" style="background-color: black; border-radius: 10px !important;" [modules]="editorConfig"></quill-editor>
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Sobre o destino</label>
+        <quill-editor formControlName="sobre_destino"  [styles]="{height: '250px'}" style="background-color: black;" [modules]="editorConfig"></quill-editor>
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Serviços</label>
+        <quill-editor formControlName="servicos" [styles]="{height: '250px'}" style="background-color: black;"  [modules]="editorConfig"></quill-editor>
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Passeios opcionais</label>
+        <quill-editor formControlName="passeios_opcionais" [styles]="{height: '250px'}" style="background-color: black;"  [modules]="editorConfig"></quill-editor>
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">O que levar?</label>
+        <quill-editor formControlName="levar" [styles]="{height: '250px'}" style="background-color: black;"  [modules]="editorConfig"></quill-editor>
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label for="">Documentos</label>
+        <quill-editor formControlName="documentos" [styles]="{height: '250px'}" style="background-color: black;"  [modules]="editorConfig"></quill-editor>
+      </div>
+    </div>
+
+    <div class="content-inputs mt-4">
+      <div class="input-label">
+        <label style="padding-left: 80px;" for="">Embarques e desembarques</label>
+        <select2 placeholder="Selecione uma ou mais opções" style="width: 1200px; padding-left: 80px; padding-right: 80px;" [data]="data" [value]="value" (update)="update($event)" multiple="true" formControlName="embarque">
+        </select2>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: flex-start; flex-direction: column; width: 100%; justify-content: flex-start; margin-left: 200px; margin-top: 20px; gap: 10px; margin-bottom: 20px;">
+      <div style="display: flex; align-items: center; gap: 10px ;">
+        <label class="switch">
+          <input formControlName="aereo" type="checkbox">
+          <span class="slider"></span>
+        </label>
+        <label for="">Circuitos?</label>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: flex-start; flex-direction: column; width: 100%; justify-content: flex-start; margin-left: 200px; margin-top: 10px; gap: 10px; margin-bottom: 20px;">
+      <div style="display: flex; align-items: center; gap: 10px ;">
+        <label class="switch">
+          <input formControlName="rodoviario" type="checkbox">
+          <span class="slider"></span>
+        </label>
+        <label for="">Rodoviário?</label>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: flex-start; flex-direction: column; width: 100%; justify-content: flex-start; margin-left: 200px; margin-top: 10px; gap: 10px; margin-bottom: 20px;">
+      <div style="display: flex; align-items: center; gap: 10px ;">
+        <label class="switch">
+          <input formControlName="carrossel" type="checkbox">
+          <span class="slider"></span>
+        </label>
+        <label for="">Colocar viagem no carrossel da tela principal?</label>
+      </div>
+    </div>
+
+    <div class="content-fotos">
+
+      <div class="container">
+        <div class="header" (click)="file1.click()" style="cursor: pointer;">
+          <svg *ngIf="!foto1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+            <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15" stroke="#ffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+          </svg>
+          <img [src]="foto1" alt="" *ngIf="foto1" style="width: 200px; height: 150px;">
+        </div>
+        <label class="footer">
+          <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path><path d="M18.153 6h-.009v5.342H23.5v-.002z"></path></g></svg>
+          <p>Selecione um arquivo</p>
+          <svg (click)="removeFoto1()" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.16565 10.1534C5.07629 8.99181 5.99473 8 7.15975 8H16.8402C18.0053 8 18.9237 8.9918 18.8344 10.1534L18.142 19.1534C18.0619 20.1954 17.193 21 16.1479 21H7.85206C6.80699 21 5.93811 20.1954 5.85795 19.1534L5.16565 10.1534Z" stroke="#000000" stroke-width="2"></path> <path d="M19.5 5H4.5" stroke="#000000" stroke-width="2" stroke-linecap="round"></path> <path d="M10 3C10 2.44772 10.4477 2 11 2H13C13.5523 2 14 2.44772 14 3V5H10V3Z" stroke="#000000" stroke-width="2"></path> </g></svg>
+        </label>
+        <input id="file" #file1 type="file" (change)="addFoto1($event)">
+      </div>
+
+
+      <div class="container">
+        <div class="header" (click)="file2.click()" style="cursor: pointer;">
+          <svg *ngIf="!foto2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+            <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15" stroke="#ffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+          </svg>
+          <img [src]="foto2" alt="" *ngIf="foto2" style="width: 200px; height: 150px;">
+        </div>
+        <label class="footer">
+          <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path><path d="M18.153 6h-.009v5.342H23.5v-.002z"></path></g></svg>
+          <p>Selecione um arquivo</p>
+          <svg (click)="removeFoto2()" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.16565 10.1534C5.07629 8.99181 5.99473 8 7.15975 8H16.8402C18.0053 8 18.9237 8.9918 18.8344 10.1534L18.142 19.1534C18.0619 20.1954 17.193 21 16.1479 21H7.85206C6.80699 21 5.93811 20.1954 5.85795 19.1534L5.16565 10.1534Z" stroke="#000000" stroke-width="2"></path> <path d="M19.5 5H4.5" stroke="#000000" stroke-width="2" stroke-linecap="round"></path> <path d="M10 3C10 2.44772 10.4477 2 11 2H13C13.5523 2 14 2.44772 14 3V5H10V3Z" stroke="#000000" stroke-width="2"></path> </g></svg>
+        </label>
+        <input id="file" #file2 type="file" (change)="addFoto2($event)">
+      </div>
+
+
+      <div class="container">
+        <div class="header" (click)="file3.click()" style="cursor: pointer;">
+          <svg *ngIf="!foto3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+            <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15" stroke="#ffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+          </svg>
+          <img [src]="foto3" alt="" *ngIf="foto3" style="width: 200px; height: 150px;">
+        </div>
+        <label class="footer">
+          <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path><path d="M18.153 6h-.009v5.342H23.5v-.002z"></path></g></svg>
+          <p>Selecione um arquivo</p>
+          <svg (click)="removeFoto3()" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.16565 10.1534C5.07629 8.99181 5.99473 8 7.15975 8H16.8402C18.0053 8 18.9237 8.9918 18.8344 10.1534L18.142 19.1534C18.0619 20.1954 17.193 21 16.1479 21H7.85206C6.80699 21 5.93811 20.1954 5.85795 19.1534L5.16565 10.1534Z" stroke="#000000" stroke-width="2"></path> <path d="M19.5 5H4.5" stroke="#000000" stroke-width="2" stroke-linecap="round"></path> <path d="M10 3C10 2.44772 10.4477 2 11 2H13C13.5523 2 14 2.44772 14 3V5H10V3Z" stroke="#000000" stroke-width="2"></path> </g></svg>
+        </label>
+        <input id="file" #file3 type="file" (change)="addFoto3($event)">
+      </div>
+
+      <div class="container">
+        <div class="header" (click)="file4.click()" style="cursor: pointer;">
+          <svg *ngIf="!foto4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+            <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15" stroke="#ffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+          </svg>
+          <img [src]="foto4" alt="" *ngIf="foto4" style="width: 200px; height: 150px;">
+        </div>
+        <label class="footer">
+          <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path><path d="M18.153 6h-.009v5.342H23.5v-.002z"></path></g></svg>
+          <p>Selecione um arquivo</p>
+          <svg (click)="removeFoto4()" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.16565 10.1534C5.07629 8.99181 5.99473 8 7.15975 8H16.8402C18.0053 8 18.9237 8.9918 18.8344 10.1534L18.142 19.1534C18.0619 20.1954 17.193 21 16.1479 21H7.85206C6.80699 21 5.93811 20.1954 5.85795 19.1534L5.16565 10.1534Z" stroke="#000000" stroke-width="2"></path> <path d="M19.5 5H4.5" stroke="#000000" stroke-width="2" stroke-linecap="round"></path> <path d="M10 3C10 2.44772 10.4477 2 11 2H13C13.5523 2 14 2.44772 14 3V5H10V3Z" stroke="#000000" stroke-width="2"></path> </g></svg>
+        </label>
+        <input id="file" #file4 type="file" (change)="addFoto4($event)">
+      </div>
+
+      <div class="container">
+        <div class="header" (click)="file5.click()" style="cursor: pointer;">
+          <svg *ngIf="!foto5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+            <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15" stroke="#ffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+          </svg>
+          <img [src]="foto5" alt="" *ngIf="foto5" style="width: 200px; height: 150px;">
+        </div>
+        <label class="footer">
+          <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path><path d="M18.153 6h-.009v5.342H23.5v-.002z"></path></g></svg>
+          <p>Selecione um arquivo</p>
+          <svg (click)="removeFoto5()" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.16565 10.1534C5.07629 8.99181 5.99473 8 7.15975 8H16.8402C18.0053 8 18.9237 8.9918 18.8344 10.1534L18.142 19.1534C18.0619 20.1954 17.193 21 16.1479 21H7.85206C6.80699 21 5.93811 20.1954 5.85795 19.1534L5.16565 10.1534Z" stroke="#000000" stroke-width="2"></path> <path d="M19.5 5H4.5" stroke="#000000" stroke-width="2" stroke-linecap="round"></path> <path d="M10 3C10 2.44772 10.4477 2 11 2H13C13.5523 2 14 2.44772 14 3V5H10V3Z" stroke="#000000" stroke-width="2"></path> </g></svg>
+        </label>
+        <input id="file" #file5 type="file" (change)="addFoto5($event)">
+      </div>
+
+    </div>
+
+    <div class="content-inputs mt-5">
+
+      <button class="btn-voltar" (click)="voltar()">Voltar</button>
+      <button class="btn-salvar" (click)="onSubmit()">Salvar</button>
+
+    </div>
+
+  </div>
+</div>
+</form>

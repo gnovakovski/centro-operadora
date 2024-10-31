@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<div class="content-vendas">
+  <div style="padding-top: 25px;">
+    <button class="button" routerLink="cadastrar-produto">Cadastrar produto</button>
+
+  </div>
+  <div class="container" style="padding-top: 10px;">
+    <table class="table table-striped table-bordered table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th style="background-color: #F96C1B;" scope="col">Produtos cadastrados</th>
+          <th style="background-color: #F96C1B;" scope="col">Data de ida</th>
+          <th style="background-color: #F96C1B;" scope="col">Data de retorno</th>
+          <th style="background-color: #F96C1B;" scope="col">Vagas</th>
+          <th style="background-color: #F96C1B;" scope="col">Valor</th>
+          <th style="background-color: #F96C1B;" scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of viagens">
+          <td>{{item.titulo}}</td>
+          <td>{{item.data_ida | date:'dd-MM-yyyy'}}</td>
+          <td>{{item.data_volta | date:'dd-MM-yyyy'}}</td>
+          <td>{{item.vagas}}</td>
+          <td>R$ {{item.preco}}</td>
+          <td>
+            <button class="btn btn-primary btn-sm me-2" routerLink="editar-produto/{{item.id}}">
+              <i class="bi bi-pencil"></i> Editar
+            </button>
+            <button class="btn btn-danger btn-sm" >
+              <i class="bi bi-trash"></i> Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

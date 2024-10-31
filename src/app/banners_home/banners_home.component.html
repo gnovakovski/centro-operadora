@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="container">
+
+  <div class="d-flex align-items-center justify-content-center mt-4">
+    <h1>Primeira parte</h1>
+  </div>
+
+  <div class="content-banner">
+    <div class="box-img-quadrado">
+      <img class="img-banner-quadrado" [src]="banner1" alt="" (click)="file1.click()">
+      <input id="file" #file1 type="file" style="display: none;" (change)="addFoto1($event)">
+    </div>
+    <div class="content-box-img-retangulo">
+      <div>
+        <img class="img-banner-retangulo" [src]="banner2" alt="" (click)="file2.click()">
+        <input id="file" #file2 type="file" style="display: none;" (change)="addFoto2($event)">
+      </div>
+      <div>
+        <img class="img-banner-retangulo" [src]="banner3" alt="" (click)="file3.click()">
+        <input id="file" #file3 type="file" style="display: none;" (change)="addFoto3($event)">
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center justify-content-center mt-4">
+    <h1>Segunda parte</h1>
+  </div>
+
+  <div class="content-banner">
+    <div class="content-box-img-retangulo">
+      <div>
+        <img class="img-banner-retangulo" [src]="banner4" alt="" (click)="file4.click()">
+        <input id="file" #file4 type="file" style="display: none;" (change)="addFoto4($event)">
+      </div>
+      <div>
+        <img class="img-banner-retangulo" [src]="banner5" alt="" (click)="file5.click()">
+        <input id="file" #file5 type="file" style="display: none;" (change)="addFoto5($event)">
+      </div>
+    </div>
+    <div class="box-img-quadrado">
+      <img class="img-banner-quadrado" [src]="banner6" alt="" (click)="file6.click()">
+      <input id="file" #file6 type="file" style="display: none;" (change)="addFoto6($event)">
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,59 @@
+
+
+<app-header></app-header>
+
+<div class="title-cadastro">
+  Cadastrar Embarque/Desembarque
+</div>
+
+
+<form [formGroup]="form">
+<div class="content-cadastro">
+  <div class="content-form-cadastro">
+
+    <div class="content-inputs">
+
+      <div class="input-label">
+        <label for="">Horário</label>
+        <input type="time" formControlName="horarioEmbarqueDesembarque">
+      </div>
+
+      <div class="input-label">
+        <label for="">Endereço</label>
+        <input type="text" formControlName="EnderecoEmbarqueDesembarque">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Viagem</label>
+        <select formControlName="viagem">
+          <option value="">Selecione uma opção</option>
+          <option value="{{item.titulo}}" *ngFor="let item of viagens">{{item.titulo}}</option>
+        </select>
+      </div>
+
+      <div class="input-label">
+        <label for="">Apenas Embarque</label>
+        <select formControlName="embarqueDesembarque">
+          <option value="">Selecione uma opção</option>
+          <option value="Apenas Embarque">Apenas Embarque</option>
+          <option value="Apenas Desembarque">Apenas Desembarque</option>
+          <option value="Embarque/Desembarque">Embarque e Desembarque</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="content-inputs mt-5">
+
+      <button class="btn-voltar" (click)="voltar()">Voltar</button>
+      <button class="btn-salvar" (click)="onSubmit()">Salvar</button>
+
+    </div>
+
+  </div>
+</div>
+</form>
+

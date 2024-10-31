@@ -1,0 +1,141 @@
+.banner-height {
+  height: 400px; /* Defina a altura do banner aqui */
+  object-fit: cover; /* Ajusta a imagem para cobrir o espaço sem distorcer */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para as setas */
+  border-radius: 50%; /* Faz as setas ficarem circulares */
+  padding: 10px; /* Ajuste o tamanho do ícone */
+}
+
+
+
+.content-banner{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+ .content-direitos{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+ }
+
+ .content-direitos p{
+  font-size: 12px;
+ }
+
+ .content-links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+ }
+
+ .content-links p{
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    font-size: 12px;
+ }
+
+.content-footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+
+.img-embratur{
+  width: 200px;
+}
+
+.img-icon-insta{
+  width: 25px;
+}
+
+.img-banner-retangulo{
+  width: 600px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.img-banner-quadrado{
+  width: 600px;
+  height: 425px;
+  border-radius: 10px;
+}
+
+.content-box-img-retangulo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 1400px) {
+
+  .content-banner{
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .img-banner-retangulo{
+    width: 500px;
+    height: 200px;
+    border-radius: 10px;
+  }
+
+  .img-banner-quadrado{
+    width: 500px;
+    height: 325px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 530px) {
+
+  .img-banner-retangulo{
+    width: 400px;
+    height: 170px;
+    border-radius: 10px;
+  }
+
+  .img-banner-quadrado{
+    width: 400px;
+    height: 285px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+
+  .img-banner-retangulo{
+    width: 345px;
+    height: 170px;
+    border-radius: 10px;
+  }
+
+  .img-banner-quadrado{
+    width: 345px;
+    height: 285px;
+    border-radius: 10px;
+  }
+}
+
+

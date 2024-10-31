@@ -1,0 +1,54 @@
+<div class="header" *ngIf="innerWidth > 881">
+  <div routerLink="/">
+    <img class="logo" src="assets/logo.png" alt="">
+  </div>
+  <div class="menus-header">
+    <a style="cursor: pointer; color: white; text-decoration: none;" href="/receptivos">
+      Receptivos
+    </a>
+    <a style="cursor: pointer; color: white; text-decoration: none;" href="/circuitos">
+      Circuitos
+    </a>
+    <a style="cursor: pointer; color: white; text-decoration: none;" href="/corporativos">
+      Corporativos
+    </a>
+    <a style="cursor: pointer; color: white; text-decoration: none;" href="/eventos">
+      Eventos
+    </a>
+  </div>
+  <div class="content-button-header">
+    <img src="assets/icon_whats.png" style="width: 65px; cursor: pointer;" (click)="whats()">
+    <button>ÁREA DO AGENTE</button>
+    <button routerLink="/login">LOGIN</button>
+  </div>
+
+</div>
+
+<div class="header-responsive" *ngIf="innerWidth < 882">
+  <div>
+    <img class="logo" src="assets/logo.png" alt="">
+  </div>
+  <div (click)="abrirMenu()">
+    <img src="assets/icon_menu.svg" style="width: 120%;">
+  </div>
+</div>
+
+<div class="menu" *ngIf="this.menu && innerWidth < 882">
+  <a style="cursor: pointer; color: white; text-decoration: none;" href="/receptivos">
+    Receptivos
+  </a>
+  <a style="cursor: pointer; color: white; text-decoration: none;" href="/circuitos">
+    Circuitos
+  </a>
+  <a style="cursor: pointer; color: white; text-decoration: none;" href="/corporativos">
+    Corporativos
+  </a>
+  <a style="cursor: pointer; color: white; text-decoration: none;" href="/eventos">
+    Eventos
+  </a>
+  <div class="content-button-header">
+    <img src="assets/icon_whats.png" style="width: 65px; cursor: pointer;" (click)="whats()">
+    <button>ÁREA DO AGENTE</button>
+    <button routerLink="/login">LOGIN</button>
+  </div>
+</div>

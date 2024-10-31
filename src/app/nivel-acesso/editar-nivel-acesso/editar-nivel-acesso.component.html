@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<div class="title-cadastro">
+  Cadastrar Nível de acesso
+</div>
+
+
+<form [formGroup]="form">
+<div class="content-cadastro">
+  <div class="content-form-cadastro">
+
+    <div class="content-inputs">
+
+      <div class="input-label">
+        <label for="">Nome</label>
+        <input type="text" formControlName="nome">
+      </div>
+
+      <div class="input-label">
+        <label for="">Edição e Visualização</label>
+        <select2 placeholder="Selecione uma ou mais opções" [data]="data" [value]="value" (update)="update($event)" multiple="true" formControlName="edicao_visualizacao">
+        </select2>
+      </div>
+
+    </div>
+    <div style="display: flex; align-items: flex-start; flex-direction: column; width: 100%; justify-content: flex-start; margin-left: 200px; margin-top: 20px; gap: 10px; margin-bottom: 20px;">
+      <div style="display: flex; align-items: center; gap: 10px ;">
+        <label class="switch">
+          <input formControlName="adm_sistema" type="checkbox">
+          <span class="slider"></span>
+        </label>
+        <label for="">Administrador do sistema</label>
+      </div>
+    </div>
+    <div class="content-inputs mt-4">
+
+    </div>
+
+    <div class="content-inputs mt-5">
+
+      <button class="btn-voltar" (click)="voltar()">Voltar</button>
+      <button class="btn-salvar" (click)="onSubmit()">Salvar</button>
+
+    </div>
+
+  </div>
+</div>
+</form>

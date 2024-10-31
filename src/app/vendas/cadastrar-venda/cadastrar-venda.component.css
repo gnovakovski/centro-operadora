@@ -1,0 +1,194 @@
+.content-cadastro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.title-cadastro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+  color: black;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.content-form-cadastro{
+  width: 1300px;
+  height: auto;
+  padding: 30px;
+  background-color: #F96C1B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.829);
+}
+
+.input-label{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.content-inputs{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+
+}
+::ng-deep .ql-editor {
+  background-color: #ffffff; /* Cor personalizada */
+}
+
+.ql-snow .ql-stroke {
+  stroke: #ffffff !important; /* Cor branca para os ícones */
+}
+
+input, select{
+  width: 420px;
+  border-radius: 5px;
+  border: 1px solid black;
+  height: 35px;
+}
+
+label{
+  font-weight: 500;
+  color: white;
+}
+
+/* From Uiverse.io by mrhyddenn */
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 25px;
+ }
+
+ /* Hide default HTML checkbox */
+ .switch input {
+  opacity: 1;
+  width: 0;
+  height: 0;
+ }
+
+ /* The slider */
+ .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  background: #fff;
+  transition: .4s;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+ }
+
+ .slider:before {
+  position: absolute;
+  content: "";
+  height: 1.20em;
+  width: 1.20em;
+  border-radius: 16px;
+  left: 1.2px;
+  top: 0;
+  bottom: 0;
+  background-color: white;
+  box-shadow: 0 2px 5px #999999;
+  transition: .4s;
+  margin-top: 1px;
+ }
+
+ input:checked + .slider {
+  background-color: #5fdd54;
+  border: 1px solid transparent;
+ }
+
+ input:checked + .slider:before {
+  transform: translateX(1em);
+ }
+
+.content-fotos{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.container {
+  height: 240px;
+  width: 240px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 5px;
+  background-color: rgba(0, 110, 255, 0.041);
+}
+
+.header {
+  flex: 1;
+  width: 100%;
+  border: 2px dashed royalblue;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.header svg {
+  height: 100px;
+}
+
+.header p {
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+.footer {
+  background-color: rgba(0, 110, 255, 0.075);
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: rgb(255, 255, 255);
+  border: none;
+}
+
+.footer svg {
+  height: 130%;
+  fill: royalblue;
+  background-color: rgba(70, 66, 66, 0.103);
+  border-radius: 50%;
+  padding: 2px;
+  cursor: pointer;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.205);
+}
+
+.footer p {
+  flex: 1;
+  text-align: center;
+  font-size: 12px !important;
+  margin-top: 15px;
+}
+
+#file {
+  display: none;
+}

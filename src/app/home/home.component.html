@@ -1,0 +1,73 @@
+<app-header-site></app-header-site>
+
+<div class="container" style="padding-top: 80px;">
+
+  <div class="content-banner">
+    <div class="box-img-quadrado">
+      <img class="img-banner-quadrado" [src]="banner1">
+    </div>
+    <div class="content-box-img-retangulo">
+      <div>
+        <img class="img-banner-retangulo" [src]="banner2">
+      </div>
+      <div>
+        <img class="img-banner-retangulo" [src]="banner3">
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-center justify-content-center mt-5">
+    <h1>Circuitos</h1>
+  </div>
+
+  <div *ngIf="innerWidth > 1452">
+    <app-carrossel-home [valor]="'Circuitos'"></app-carrossel-home >
+  </div>
+  <div *ngIf="innerWidth < 1453 && innerWidth > 995">
+    <app-carrossel-home-responsive1 [valor]="'Circuitos'"></app-carrossel-home-responsive1>
+  </div>
+  <div *ngIf="innerWidth < 996 && innerWidth > 775">
+    <app-carrossel-home-responsive2 [valor]="'Circuitos'"></app-carrossel-home-responsive2>
+  </div>
+  <div *ngIf="innerWidth < 776">
+    <app-carrossel-home-responsive3 [valor]="'Circuitos'"></app-carrossel-home-responsive3>
+  </div>
+
+  <div class="content-banner">
+
+    <div class="content-box-img-retangulo">
+      <div>
+        <img class="img-banner-retangulo" [src]="banner4">
+      </div>
+      <div>
+        <img class="img-banner-retangulo" [src]="banner5">
+      </div>
+    </div>
+    <div class="box-img-quadrado">
+      <img class="img-banner-quadrado" [src]="banner6">
+    </div>
+  </div>
+
+  <div class="d-flex align-center justify-content-center mt-5">
+    <h1>Receptivos</h1>
+  </div>
+
+  <div *ngIf="innerWidth > 1452">
+    <app-carrossel-home [valor]="'Bate e Volta '"></app-carrossel-home >
+  </div>
+  <div *ngIf="innerWidth < 1453 && innerWidth > 995">
+    <app-carrossel-home-responsive1 [valor]="'Bate e Volta '"></app-carrossel-home-responsive1>
+  </div>
+  <div *ngIf="innerWidth < 996 && innerWidth > 775">
+    <app-carrossel-home-responsive2 [valor]="'Bate e Volta '"></app-carrossel-home-responsive2>
+  </div>
+  <div *ngIf="innerWidth < 776">
+    <app-carrossel-home-responsive3 [valor]="'Bate e Volta '"></app-carrossel-home-responsive3>
+  </div>
+
+  <app-footer></app-footer>
+
+</div>
+
+
+

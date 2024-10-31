@@ -1,0 +1,104 @@
+.container-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-top: 20px;
+}
+
+.content-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 320px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 217, 0);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 5px 10px;
+  width: 130px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.content-card img {
+  width: 320px;
+  height: 230px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.box-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 240px;
+  background-color: rgb(255, 255, 255);
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: -12px;
+  padding: 10px;
+}
+
+.card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.box-card h4 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.box-card button {
+  width: 100%;
+  background-color: #F96C1B;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  color: white;
+}
+
+.carousel {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.content-carrossel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+button img {
+  width: 20px;
+}

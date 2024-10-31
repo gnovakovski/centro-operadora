@@ -1,0 +1,85 @@
+html, body{
+  background-image: url('../src/assets/fundo.avif');
+  overflow-x: hidden;
+  background-size: cover; /* Faz com que a imagem cubra todo o espaço */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Impede a repetição da imagem */
+  height: 100vh; /* Define a altura como 100% da altura da janela */
+  width: 100%; /* Define a largura como 100% */
+  position: relative; /* Para o posicionamento de elementos dentro, se necessário */
+}
+
+.ql-snow .ql-fill {
+  fill: #ffffff !important; /* Cor branca para qualquer ícone com preenchimento */
+  color: white;
+}
+
+.ql-snow .ql-picker{
+  fill: #ffffff !important; /* Cor branca para qualquer ícone com preenchimento */
+  color: white !important;
+}
+
+.ql-snow .ql-stroke{
+  stroke: #ffffff !important;
+}
+
+.ql-container .ql-snow{
+  border-radius: 10px !important;
+}
+
+.btn-voltar{
+  width: 150px;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  border: none;
+  background-color: rgb(107, 25, 25);
+  border-radius: 5px;
+}
+
+.btn-salvar{
+  width: 150px;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  border: none;
+  background-color: rgb(41, 107, 25);
+  border-radius: 5px;
+}
+
+.select2-selection__choice {
+  padding-left: 24px !important;
+}
+
+.select2-selection__choice__remove {
+  margin-left: 0px !important; /* Espaçamento à esquerda do ícone de remover */
+  color: #dc3545 !important; /* Cor do X (opcional) */
+}
+
+/* Apenas para este componente */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.scrollable {
+  height: 300px; /* Altura do container com scroll */
+  overflow-y: auto; /* Habilita a rolagem vertical */
+  scrollbar-width: thin; /* Para Firefox */
+  scrollbar-color: #888 #f1f1f1; /* Para Firefox */
+}
+

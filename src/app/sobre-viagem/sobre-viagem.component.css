@@ -1,0 +1,239 @@
+.header-sobre {
+  width: 100%;
+  height: 60px;
+}
+
+.body-viagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 700px;
+  margin-top: 30px;
+  gap: 30px;
+  flex-direction: column;
+}
+
+.img {
+  width: 700px;
+  border-radius: 10px;
+}
+
+.style-img {
+  width: 700px;
+  border-radius: 10px;
+  height: 500px;
+  box-shadow: 4px 5px 17px -4px #3d3d3d;
+}
+
+.box-valor {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 700px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  padding: 20px;
+  gap: 10px;
+  box-shadow: 4px 5px 17px -4px #3d3d3d;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.banner-text {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 24px;
+}
+
+
+.text-infos {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  width: 1400px;
+}
+
+.button_whats{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25d366;
+  width: 320px;
+  color: white;
+  border: none;
+  height: 40px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: bold;
+}
+
+.button_whats:hover{
+  background: #169645;
+}
+
+.info-section {
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 4px 5px 17px -4px #3d3d3d;
+}
+
+.banner{
+  width: 100%;
+  height: auto;
+}
+
+.info-section h2 {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1460px) {
+
+  .text-infos {
+    width: 1200px;
+
+  }
+
+}
+
+@media (max-width: 1250px) {
+
+  .text-infos {
+    width: 1000px;
+
+  }
+
+}
+
+@media (max-width: 1050px) {
+
+  .text-infos {
+    width: 900px;
+
+  }
+
+}
+
+@media (max-width: 950px) {
+
+  .text-infos {
+    width: 800px;
+
+  }
+
+  .box-valor {
+    width: 800px;
+  }
+
+}
+
+@media (max-width: 840px) {
+
+  .text-infos {
+    width: 650px;
+
+  }
+
+  .box-valor {
+    width: 650px;
+  }
+
+}
+
+@media (max-width: 750px) {
+  .style-img {
+    width: 500px;
+    border-radius: 10px;
+    height: 300px;
+  }
+
+  .body-viagem {
+    width: 400px;
+  }
+
+  .text-infos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+@media (max-width: 680px) {
+
+  .text-infos {
+    width: 520px;
+
+  }
+
+  .box-valor {
+    width: 520px;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .style-img {
+    width: 350px;
+    border-radius: 10px;
+    height: 240px;
+  }
+
+  .text-infos {
+    width: 440px;
+
+  }
+
+  .box-valor {
+    width: 440px;
+  }
+
+  .body-viagem {
+    width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .text-infos {
+    width: 380px;
+
+  }
+
+  .box-valor {
+    width: 380px;
+  }
+
+}
+
+@media (max-width: 410px) {
+
+  .text-infos {
+    width: 340px;
+
+  }
+
+  .box-valor {
+    width: 340px;
+  }
+
+}
+

@@ -1,0 +1,89 @@
+<header>
+  <div>
+    <img class="logo" src="assets/logo.png" alt="">
+  </div>
+
+  <nav class="menu">
+    <a *ngIf="roleProdutos" href="/produtos">Produtos</a>
+    <a *ngIf="roleClientes" href="/clientes">Clientes</a>
+    <a *ngIf="roleFornecedores" href="/fornecedores">Fornecedores</a>
+    <a *ngIf="roleVendas" href="/vendas">Vendas</a>
+    <a  *ngIf="roleEmbarqueDesembarque" href="/embarque-desembarque">Embarque/Desembarque</a>
+  </nav>
+
+  <div class="settings">
+    <i *ngIf="roleConf" class="icon-gear" (click)="aparecerConf()"></i>
+    <div style="position: fixed; margin-top: 150px; margin-left: -62px;" *ngIf="boxConf && roleConf">
+      <div class="box-conf">
+        <div routerLink="/usuarios" style="cursor: pointer;">
+          Usuários
+        </div>
+        <div routerLink="/niveis-acesso" style="cursor: pointer;">
+          Nível de acesso
+        </div>
+        <div style="cursor: pointer;" (click)="openModal(contatoWhats, 'whats')">
+          Link Whats
+        </div>
+        <div style="cursor: pointer;" (click)="openModal(contatoInsta, 'insta')">
+          Link Instagram
+        </div>
+        <a style="cursor: pointer; color: black; text-decoration: none;" href="/banners-home">
+          Banners home
+        </a>
+      </div>
+    </div>
+    <button class="button" (click)="logout()">Logout</button>
+  </div>
+</header>
+
+<ng-template #contatoWhats let-modal>
+
+  <div class="header-modal">
+    <div class="title-modal">
+      Editar link whats
+    </div>
+  </div>
+
+  <div class="body-modal">
+    <form [formGroup]="form_link">
+
+      <div class="input-label">
+        <label for="">Link</label>
+        <input style="width: 350px !important;" type="text" formControlName="link">
+      </div>
+
+    </form>
+  </div>
+
+  <div class="footer-modal">
+    <button class="btn-voltar" (click)="fecharModal()">Voltar</button>
+    <button class="btn-salvar" (click)="onSubmitWhats()">Salvar</button>
+  </div>
+
+</ng-template>
+
+<ng-template #contatoInsta let-modal>
+
+  <div class="header-modal">
+    <div class="title-modal">
+      Editar link Instagram
+    </div>
+  </div>
+
+  <div class="body-modal">
+    <form [formGroup]="form_link">
+
+      <div class="input-label">
+        <label for="">Link</label>
+        <input style="width: 350px !important;" type="text" formControlName="link">
+      </div>
+
+    </form>
+  </div>
+
+  <div class="footer-modal">
+    <button class="btn-voltar" (click)="fecharModal()">Voltar</button>
+    <button class="btn-salvar" (click)="onSubmitInsta()">Salvar</button>
+  </div>
+
+</ng-template>

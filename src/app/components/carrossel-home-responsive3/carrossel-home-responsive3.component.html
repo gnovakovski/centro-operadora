@@ -1,0 +1,27 @@
+<div *ngIf="!carregandoImagens" class="content-carrossel" style="overflow-x: auto;">
+
+  <div class="container-cards" style="width: 350px !important;">
+    <div class="carousel" *ngFor="let card of viagens">
+      <div class="content-card">
+        <div style="position: relative;">
+          <img [src]="card.foto" alt="">
+          <div class="overlay" *ngIf="card.vagas < 6 && card.vagas > 0">
+            <span>Poucas Vagas</span>
+          </div>
+          <div class="overlay" style="background-color: rgb(147, 28, 28) !important;" *ngIf="card.vagas === 0 || card.vagas === ''">
+            <span>Esgotado</span>
+          </div>
+        </div>
+        <div class="box-card">
+          <div class="card-content">
+            <h4>{{card.titulo}}</h4>
+            <p>{{(card.data_ida | date:'dd-MM-yyyy') + ' a ' + (card.data_volta | date:'dd-MM-yyyy')}}</p>
+            <p class="text-center">R$ {{card.preco}}<br>{{card.parcelamento}}</p>
+          </div>
+          <button routerLink="/inicio/{{card.id}}">SAIBA MAIS SOBRE A VIAGEM</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,304 @@
+<app-header></app-header>
+
+<div class="title-cadastro">
+  Cadastrar Fornecedor
+</div>
+
+
+<form [formGroup]="form">
+<div class="content-cadastro">
+  <div class="content-form-cadastro">
+
+    <div class="content-inputs">
+
+      <div class="input-label">
+        <label for="">Razão social</label>
+        <input type="text" formControlName="razao_social">
+      </div>
+
+      <div class="input-label">
+        <label for="">Nome fantasia</label>
+        <input type="text" formControlName="nome_fantasia">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">CNPJ</label>
+        <input appCnpjMask type="text" formControlName="cnpj">
+      </div>
+
+      <div class="input-label">
+        <label for="">Endereço</label>
+        <input type="text" formControlName="endereco">
+      </div>
+
+    </div>
+
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">E-mail comercial</label>
+        <input style="width: 350px !important;" type="text" formControlName="email_comercial">
+      </div>
+
+      <div class="input-label">
+        <label for="">Telefone comercial</label>
+        <input style="width: 350px !important;" appPhoneMask type="text" formControlName="telefone_comercial">
+      </div>
+
+      <div class="input-label">
+        <label for="">Nome do contato comercial</label>
+        <input style="width: 350px !important;" type="text" formControlName="nome_comercial">
+      </div>
+
+    </div>
+
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">E-mail financeiro</label>
+        <input style="width: 350px !important;" type="text" formControlName="email_financeiro">
+      </div>
+
+      <div class="input-label">
+        <label for="">Telefone financeiro</label>
+        <input style="width: 350px !important;" appPhoneMask type="text" formControlName="telefone_financeiro">
+      </div>
+
+      <div class="input-label">
+        <label for="">Nome do contato financeiro</label>
+        <input style="width: 350px !important;" type="text" formControlName="nome_financeiro">
+      </div>
+
+    </div>
+
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Tipo de fornecedor</label>
+          <select (change)="pegarValorTipoFornecedor($event)" style="width: 350px !important; margin-right: 10px;" formControlName="tipo_fornecedor">
+            <option value="">Selecione uma opção</option>
+            <option value="{{item.tipo_fornecedor}}" *ngFor="let item of tipo_fornecedor">{{item.tipo_fornecedor}}</option>
+          </select>
+          <div (click)="openModal(tipoFornecedor)" style="color: white; font-size: 14px; display: flex; align-items: center; cursor: pointer; gap: 5px;" class="mt-1">
+            <img src="assets/icon_plus.svg" style="width: 10px;" alt="">
+           <div>
+            Adicionar Tipo de fornecedor
+           </div>
+          </div>
+      </div>
+
+      <div class="input-label" style="opacity: 0;" *ngIf="!liberarAcomodacao  && !liberarIngresso  && !liberarOnibus  && !liberarQuarto ">
+        <label for=""></label>
+        <input style="width: 350px !important;" type="text" disabled>
+      </div>
+
+      <div class="input-label" *ngIf="this.liberarAcomodacao">
+        <label for="">Acomodação</label>
+        <select style="width: 350px !important;" formControlName="acomodacao_hotel">
+          <option value="">Selecione uma opção</option>
+          <option value="{{item.acomodacao}}" *ngFor="let item of acomodacao">{{item.acomodacao}}</option>
+        </select>
+        <div (click)="openModal(CadastroAcomodacao)" style="color: white; font-size: 14px; display: flex; align-items: center; cursor: pointer; gap: 5px;" class="mt-1">
+          <img src="assets/icon_plus.svg" style="width: 10px;" alt="">
+         <div>
+          Adicionar Acomodação
+         </div>
+        </div>
+      </div>
+
+      <div class="input-label" *ngIf="this.liberarQuarto">
+        <label for="">Quarto</label>
+        <select style="width: 350px !important;" formControlName="quarto_hotel">
+          <option value="">Selecione uma opção</option>
+          <option value="{{item.quarto}}" *ngFor="let item of quarto">{{item.quarto}}</option>
+        </select>
+        <div (click)="openModal(CadastroQuarto)" style="color: white; font-size: 14px; display: flex; align-items: center; cursor: pointer; gap: 5px;" class="mt-1">
+          <img src="assets/icon_plus.svg" style="width: 10px;" alt="">
+         <div>
+          Adicionar Quarto
+         </div>
+        </div>
+      </div>
+
+      <div class="input-label" *ngIf="this.liberarIngresso">
+        <label for="">Ingresso</label>
+        <select style="width: 350px !important;" formControlName="ingresso">
+          <option value="">Selecione uma opção</option>
+          <option value="{{item.ingresso}}" *ngFor="let item of ingresso">{{item.ingresso}}</option>
+        </select>
+        <div (click)="openModal(CadastroIngresso)" style="color: white; font-size: 14px; display: flex; align-items: center; cursor: pointer; gap: 5px;" class="mt-1">
+          <img src="assets/icon_plus.svg" style="width: 10px;" alt="">
+         <div>
+          Adicionar Ingresso
+         </div>
+        </div>
+      </div>
+
+      <div class="input-label" *ngIf="this.liberarOnibus">
+        <label for="">Ônibus</label>
+        <select style="width: 350px !important;" formControlName="onibus">
+          <option value="">Selecione uma opção</option>
+          <option value="{{item.onibus}}" *ngFor="let item of onibus">{{item.onibus}}</option>
+        </select>
+        <div (click)="openModal(CadastroOnibus)" style="color: white; font-size: 14px; display: flex; align-items: center; cursor: pointer; gap: 5px;" class="mt-1">
+          <img src="assets/icon_plus.svg" style="width: 10px;" alt="">
+         <div>
+          Adicionar Ônibus
+         </div>
+        </div>
+      </div>
+
+      <div class="input-label" style="opacity: 0;" *ngIf="liberarIngresso || liberarOnibus">
+        <label for=""></label>
+        <input style="width: 350px !important;" type="text" disabled>
+      </div>
+
+      <div class="input-label" style="opacity: 0;" *ngIf="!liberarAcomodacao && !liberarIngresso && !liberarOnibus && !liberarQuarto">
+        <label for=""></label>
+        <input style="width: 350px !important;" type="text" disabled>
+      </div>
+    </div>
+
+    <div class="content-inputs mt-5">
+
+      <button class="btn-voltar" (click)="voltar()">Voltar</button>
+      <button class="btn-salvar" (click)="onSubmit()">Salvar</button>
+
+    </div>
+
+  </div>
+</div>
+</form>
+
+<ng-template #tipoFornecedor let-modal>
+
+  <div class="header-modal">
+    <div class="title-modal">
+      Cadastrar tipo de fornecedor
+    </div>
+  </div>
+
+  <div class="body-modal">
+    <form [formGroup]="form_tipo_fornecedor">
+
+      <div class="input-label">
+        <label for="">Nome</label>
+        <input style="width: 350px !important;" type="text" formControlName="tipo_fornecedor">
+      </div>
+
+    </form>
+  </div>
+
+  <div class="footer-modal">
+    <button class="btn-voltar" (click)="fecharModal()">Voltar</button>
+    <button class="btn-salvar" (click)="cadastrarTipoFornecedor()">Salvar</button>
+  </div>
+
+</ng-template>
+
+<ng-template #CadastroAcomodacao let-modal>
+
+  <div class="header-modal">
+    <div class="title-modal">
+      Cadastrar Acomodação
+    </div>
+  </div>
+
+  <div class="body-modal">
+    <form [formGroup]="form_acomodacao">
+
+      <div class="input-label">
+        <label for="">Nome</label>
+        <input style="width: 350px !important;" type="text" formControlName="acomodacao">
+      </div>
+
+    </form>
+  </div>
+
+  <div class="footer-modal">
+    <button class="btn-voltar" (click)="fecharModal()">Voltar</button>
+    <button class="btn-salvar" (click)="cadastrarAcomodacao()">Salvar</button>
+  </div>
+
+</ng-template>
+
+<ng-template #CadastroQuarto let-modal>
+
+  <div class="header-modal">
+    <div class="title-modal">
+      Cadastrar Quarto
+    </div>
+  </div>
+
+  <div class="body-modal">
+    <form [formGroup]="form_quarto">
+
+      <div class="input-label">
+        <label for="">Nome</label>
+        <input style="width: 350px !important;" type="text" formControlName="quarto">
+      </div>
+
+    </form>
+  </div>
+
+  <div class="footer-modal">
+    <button class="btn-voltar" (click)="fecharModal()">Voltar</button>
+    <button class="btn-salvar" (click)="cadastrarQuarto()">Salvar</button>
+  </div>
+
+</ng-template>
+
+<ng-template #CadastroOnibus let-modal>
+
+  <div class="header-modal">
+    <div class="title-modal">
+      Cadastrar tipo de ônibus
+    </div>
+  </div>
+
+  <div class="body-modal">
+    <form [formGroup]="form_onibus">
+
+      <div class="input-label">
+        <label for="">Nome</label>
+        <input style="width: 350px !important;" type="text" formControlName="onibus">
+      </div>
+
+    </form>
+  </div>
+
+  <div class="footer-modal">
+    <button class="btn-voltar" (click)="fecharModal()">Voltar</button>
+    <button class="btn-salvar" (click)="cadastrarOnibus()">Salvar</button>
+  </div>
+
+</ng-template>
+
+<ng-template #CadastroIngresso let-modal>
+
+  <div class="header-modal">
+    <div class="title-modal">
+      Cadastrar tipo de ingresso
+    </div>
+  </div>
+
+  <div class="body-modal">
+    <form [formGroup]="form_ingresso">
+
+      <div class="input-label">
+        <label for="">Nome</label>
+        <input style="width: 350px !important;" type="text" formControlName="ingresso">
+      </div>
+
+    </form>
+  </div>
+
+  <div class="footer-modal">
+    <button class="btn-voltar" (click)="fecharModal()">Voltar</button>
+    <button class="btn-salvar" (click)="cadastrarIngresso()">Salvar</button>
+  </div>
+
+</ng-template>

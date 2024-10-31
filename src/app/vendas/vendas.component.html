@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<div class="content-vendas">
+  <div style="padding-top: 25px;">
+    <button class="button" routerLink="cadastrar-venda">Cadastrar venda</button>
+
+  </div>
+  <div class="container" style="padding-top: 10px;">
+    <table class="table table-striped table-bordered table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th style="background-color: #F96C1B;" scope="col">Viagem</th>
+          <th style="background-color: #F96C1B;" scope="col">Valor</th>
+          <th style="background-color: #F96C1B;" scope="col">Status</th>
+          <th style="background-color: #F96C1B;" scope="col">Forma de Pagamento</th>
+          <th style="background-color: #F96C1B;" scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of vendas">
+          <td>{{item.viagem}}</td>
+          <td>R$ {{item.valor}}</td>
+          <td>
+            <span>
+              {{item.status_pagamento}}
+            </span>
+          </td>
+          <td>{{item.forma_pagamento}}</td>
+          <td>
+            <button class="btn btn-primary btn-sm me-2" routerLink="editar-venda/{{item.id}}">
+              <i class="bi bi-pencil"></i> Editar
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="deletarVenda(item.id)">
+              <i class="bi bi-trash"></i> Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<app-header></app-header>
+
+<div class="title-cadastro">
+  Cadastrar Venda
+</div>
+
+
+<form [formGroup]="form">
+<div class="content-cadastro">
+  <div class="content-form-cadastro">
+
+    <div class="content-inputs">
+
+      <div class="input-label">
+        <label for="">Viagem</label>
+        <select formControlName="viagem">
+          <option value="">Selecione uma opção</option>
+          <option value="{{item.titulo}}" *ngFor="let item of viagens">{{item.titulo}}</option>
+        </select>
+      </div>
+
+      <div class="input-label">
+        <label for="">Forma de pagamento</label>
+        <select formControlName="forma_pagamento">
+          <option value="">Selecione uma opção</option>
+          <option value="Cartão Minha Excursão">Cartão Minha Excursão</option>
+          <option value="Cartão próprio">Cartão próprio</option>
+          <option value="Crédito à vista">Crédito à vista</option>
+          <option value="Crédito parcelado">Crédito parcelado</option>
+          <option value="Débito">Débito</option>
+          <option value="Dinheiro">Dinheiro</option>
+          <option value="Pix">Pix</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Data da reserva</label>
+        <input type="date" formControlName="data_reserva">
+      </div>
+
+      <div class="input-label">
+        <label for="">Data do pagamento</label>
+        <input type="date" formControlName="data_pagamento">
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Clientes</label>
+        <select formControlName="cliente">
+          <option value="">Selecione uma opção</option>
+          <option value="{{item.nome}}" *ngFor="let item of clientes">{{item.nome}}</option>
+        </select>
+      </div>
+
+      <div class="input-label">
+        <label for="">Status do pagamento</label>
+        <select formControlName="status_pagamento">
+          <option value="">Selecione uma opção</option>
+          <option value="Pago">Pago</option>
+          <option value="Em andamento">Em andamento</option>
+          <option value="Sem pagamento">Sem pagamento</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="content-inputs mt-4">
+
+      <div class="input-label">
+        <label for="">Valor</label>
+        <input moneyMask type="text" formControlName="valor">
+      </div>
+
+
+      <div class="input-label" style="opacity: 0;">
+        <label for=""></label>
+        <input type="text" disabled>
+      </div>
+    </div>
+
+    <div class="content-inputs mt-5">
+
+      <button class="btn-voltar" (click)="voltar()">Voltar</button>
+      <button class="btn-salvar" (click)="onSubmit()">Salvar</button>
+
+    </div>
+
+  </div>
+</div>
+</form>

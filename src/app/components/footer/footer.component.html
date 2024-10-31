@@ -1,0 +1,34 @@
+<div class="content-direitos">
+  <p class="text-center">2024 - Todos os direitos reservados. Minha Excursão Viagens e Turismo Ltda - Rua dos Andradas, 1155/1202 - Centro - Porto Alegre - RS - Todas as viagens aqui disponíveis poderão sofrer alterações sem aviso prévio. As viagens possuem disponibilidade limitada podendo assim, ao entrar em contato, terem se esgotado. Em todas as viagens são gerados contrato. Consulte as formas de pagamento e parcelamento durante a contato.</p>
+</div>
+
+<div class="content-links"  *ngIf="innerWidth > 500">
+  <p>QUEM SOMOS</p>
+  <p>TERMOS DE USO</p>
+  <p>POLÍTICA DE PRIVACIDADE</p>
+  <P>SEGURANÇA</P>
+  <P>DEPOIMENTOS</P>
+  <p>CONTATO</p>
+</div>
+
+<div style="display: flex; align-items: center; flex-direction: column;" *ngIf="innerWidth < 501">
+  <div class="content-links">
+    <p>QUEM SOMOS</p>
+    <p>TERMOS DE USO</p>
+    <p>POLÍTICA DE PRIVACIDADE</p>
+  </div>
+  <div class="content-links" >
+    <P>SEGURANÇA</P>
+    <P>DEPOIMENTOS</P>
+    <p>CONTATO</p>
+  </div>
+</div>
+
+<div class="content-footer">
+  <div>
+    <img class="img-embratur" src="assets/embratur.webp" alt="">
+  </div>
+  <div>
+    <img (click)="insta()" class="img-icon-insta" src="assets/icon_insta.png" alt="">
+  </div>
+</div>

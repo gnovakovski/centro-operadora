@@ -1,0 +1,63 @@
+
+
+.content-direitos{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+ }
+
+ .content-direitos p{
+  font-size: 12px;
+ }
+
+ .content-links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+ }
+
+ .content-links p{
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+ }
+
+.content-footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.img-embratur{
+  width: 200px;
+}
+
+.img-icon-insta{
+  width: 25px;
+}
+
+.content-links p{
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 370px) {
+
+  .content-links p{
+    font-weight: bold;
+    font-size: 10px;
+  }
+
+}
+
