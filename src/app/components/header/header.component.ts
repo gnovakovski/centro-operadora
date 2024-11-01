@@ -29,9 +29,9 @@ export class HeaderComponent implements OnInit {
   public roleFornecedores: boolean = false;
   public roleVendas: boolean = false;
   public roleEmbarqueDesembarque: boolean = false;
+  public roleAgentes: boolean = false;
 
-  constructor(private service: ServiceService, private router: Router, private location: Location, public formBuilder: FormBuilder, private toastr: ToastrService, public modalService: NgbModal) { }
-
+  constructor(private service: ServiceService, private router: Router, private location: Location, public formBuilder: FormBuilder, private toastr: ToastrService, public modalService: NgbModal) {}
 
   ngOnInit() {
 
@@ -178,6 +178,7 @@ export class HeaderComponent implements OnInit {
     this.roleEmbarqueDesembarque = this.dataRole.some((valor: string) => valor === "embarque-desembarque");
     this.roleFornecedores        = this.dataRole.some((valor: string) => valor === "fornecedores");
     this.roleVendas              = this.dataRole.some((valor: string) => valor === "vendas");
+    this.roleAgentes             = this.dataRole.some((valor: string) => valor === "agentes");
 
   }
 
@@ -187,6 +188,7 @@ export class HeaderComponent implements OnInit {
         localStorage.removeItem('token-adm');
         localStorage.removeItem('nivel-acesso');
         localStorage.removeItem('user');
+        localStorage.removeItem('nome');
         window.location.href = "login";
       })
       .catch((error) => {

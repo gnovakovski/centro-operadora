@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  login(email: any) {
+  login(email: any, acesso: any) {
     let login = this.form.getRawValue();
 
     if(!this.valor){
@@ -45,7 +45,14 @@ export class LoginComponent implements OnInit {
               let tokenAcesso = JSON.stringify(accessToken);
               localStorage.setItem('token-adm', tokenAcesso);
 
-              this.router.navigate(['/produtos']);
+              
+              if(acesso === "Administrador"){
+
+                this.router.navigate(['/produtos']);
+
+              }else{
+                this.router.navigate(['/vendas']);
+              }
             });
         },
         (error) => {
@@ -71,13 +78,29 @@ export class LoginComponent implements OnInit {
       if (data) {
         let email = data;
 
-        this.login(email.email);
+        this.login(email.email, email.nivel_acesso);
 
         localStorage.setItem('nivel-acesso', email.nivel_acesso);
+        localStorage.setItem('nome', email.nome);
         localStorage.setItem('user', login.user);
 
       } else {
-        console.log('Nenhuma pessoa encontrada com esse email.');
+
+        this.service.getEmailByUserAgente(login.user).subscribe(data => {
+          if (data) {
+            let email = data;
+    
+            this.login(email.email, email.nivel_acesso);
+    
+            localStorage.setItem('nivel-acesso', email.nivel_acesso);
+            localStorage.setItem('nome', email.nome);
+            localStorage.setItem('user', login.user);
+    
+          } else {
+            this.toastr.error('Usuário não encontrado', 'Erro');
+          }
+        });
+
       }
     });
   }

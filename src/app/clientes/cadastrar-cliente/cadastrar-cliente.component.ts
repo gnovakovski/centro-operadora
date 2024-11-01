@@ -20,12 +20,25 @@ export class CadastrarClienteComponent {
   public form: any;
   public clientes: any;
   public cep: any;
+  public user: any;
 
   fotos: Foto[] = [];
 
   constructor(private router: Router, private service: ServiceService, public formBuilder: FormBuilder, private toastr: ToastrService) {}
 
   ngOnInit() {
+
+    let role = localStorage.getItem('nivel-acesso');
+
+    if(role === "Agente" || role === "Sub-agente"){
+      
+      this.user = localStorage.getItem('user')
+
+    }else{
+
+      this.user = "Adm";
+
+    }
 
     this.form = this.formBuilder.group({
       nome: '',
@@ -41,6 +54,7 @@ export class CadastrarClienteComponent {
       bairro: '',
       cidade: '',
       estado: '',
+      cadastradoPor: this.user,
       documentos: {}
     });
 

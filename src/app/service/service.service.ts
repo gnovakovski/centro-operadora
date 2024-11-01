@@ -33,6 +33,42 @@ export class ServiceService {
     );
   }
 
+  getVendasPorVendedor(parametro: any, vendidoPor: string): Observable<any[]> {
+    return this.firestore.collection('vendas', ref => ref.where('vendidoPor', parametro, vendidoPor))
+      .snapshotChanges()
+      .pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as any;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
+  }
+
+  getAgentesByAgente(parametro: any, agenteVinculado: string): Observable<any[]> {
+    return this.firestore.collection('agentes', ref => ref.where('agenteVinculado', parametro, agenteVinculado))
+      .snapshotChanges()
+      .pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as any;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
+  }
+
+  getClientesByAgente(parametro: any, cadastradoPor: string): Observable<any[]> {
+    return this.firestore.collection('clientes', ref => ref.where('cadastradoPor', parametro, cadastradoPor))
+      .snapshotChanges()
+      .pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as any;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
+  }
+
   getImageUrl(imageName: string): Observable<string> {
     const imageRef = this.fireStorage.ref(imageName);
     return imageRef.getDownloadURL();
@@ -43,18 +79,17 @@ export class ServiceService {
     return this.firestore.collection(collection).doc(id).set(viagem);
   }
 
-  // Método para fazer o upload da imagem
+
   uploadImage(file: File, fileName: string): Observable<string> {
-    const filePath = fileName; // Caminho e nome do arquivo
+    const filePath = fileName;
     const fileRef = this.fireStorage.ref(filePath);
     const task = this.fireStorage.upload(filePath, file);
 
     return new Observable<string>((observer) => {
-      // Monitorar o progresso do upload e obter o URL de download
       task.snapshotChanges().pipe(
         finalize(() => {
           fileRef.getDownloadURL().subscribe(url => {
-            observer.next(url); // Retorna a URL de download
+            observer.next(url);
             observer.complete();
           });
         })
@@ -95,7 +130,7 @@ export class ServiceService {
       });
   }
 
-  getEmailByUser(user: string): Observable<{ email: string; nivel_acesso: string } | null> {
+  getEmailByUser(user: string): Observable<{ email: string; nivel_acesso: string; nome: string } | null> {
     return this.firestore
       .collection("usuarios", ref => ref.where('usuario', '==', user))
       .snapshotChanges()
@@ -106,6 +141,27 @@ export class ServiceService {
             return {
               email: data.email,
               nivel_acesso: data.nivel_acesso || "",
+              nome: data.nome || "",
+            };
+          } else {
+            return null;
+          }
+        })
+      );
+  }
+
+  getEmailByUserAgente(user: string): Observable<{ email: string; nivel_acesso: string; nome: string } | null> {
+    return this.firestore
+      .collection("agentes", ref => ref.where('usuario', '==', user))
+      .snapshotChanges()
+      .pipe(
+        map(actions => {
+          if (actions.length > 0) {
+            const data = actions[0].payload.doc.data() as any;
+            return {
+              email: data.email,
+              nivel_acesso: data.nivel_acesso || "",
+              nome: data.nome || "",
             };
           } else {
             return null;

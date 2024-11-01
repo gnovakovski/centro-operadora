@@ -26,6 +26,10 @@ import { EditarEmbarqueDesembarqueComponent } from './embarque/editar-embarque-d
 import { ViagensLpComponent } from './viagens-lp/viagens-lp.component';
 import { EmbarqueComponent } from './embarque/embarque.component';
 import { Banners_homeComponent } from './banners_home/banners_home.component';
+import { AgentesComponent } from './agentes/agentes.component';
+import { CadastrarAgenteComponent } from './agentes/cadastrar-agente/cadastrar-agente.component';
+import { EditarAgenteComponent } from './agentes/editar-agente/editar-agente.component';
+import { VisualizarVendasComponent } from './vendas/visualizar-vendas/visualizar-vendas.component';
 
 const routes: Routes = [
 
@@ -48,6 +52,11 @@ const routes: Routes = [
   {
     path: 'produtos',
     component: ViagensComponent
+  },
+
+  {
+    path: 'agentes',
+    component: AgentesComponent
   },
 
   {
@@ -91,6 +100,16 @@ const routes: Routes = [
   },
 
   {
+    path: 'agentes/cadastrar-agente',
+    component: CadastrarAgenteComponent
+  },
+
+  {
+    path: 'agentes/editar-agente/:id',
+    component: EditarAgenteComponent
+  },
+
+  {
     path: 'niveis-acesso/editar-nivel-acesso/:id',
     component: EditarNivelAcessoComponent
   },
@@ -128,6 +147,11 @@ const routes: Routes = [
   {
     path: 'vendas/editar-venda/:id',
     component: EditarVendaComponent
+  },
+
+  {
+    path: 'vendas/visualizar-venda/:id',
+    component: VisualizarVendasComponent
   },
 
   {

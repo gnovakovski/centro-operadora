@@ -55,9 +55,13 @@ import { CarrosselHomeResponsive3Component } from './components/carrossel-home-r
 import { FooterComponent } from './components/footer/footer.component';
 import { ViagensLpComponent } from './viagens-lp/viagens-lp.component';
 import { Banners_homeComponent } from './banners_home/banners_home.component';
+import { AgentesComponent } from './agentes/agentes.component';
+import { CadastrarAgenteComponent } from './agentes/cadastrar-agente/cadastrar-agente.component';
+import { EditarAgenteComponent } from './agentes/editar-agente/editar-agente.component';
+import { VisualizarVendasComponent } from './vendas/visualizar-vendas/visualizar-vendas.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [		
     AppComponent,
       LoginComponent,
       ViagensComponent,
@@ -97,7 +101,11 @@ import { Banners_homeComponent } from './banners_home/banners_home.component';
       CarrosselHomeResponsive3Component,
       FooterComponent,
       ViagensLpComponent,
-      Banners_homeComponent
+      Banners_homeComponent,
+      AgentesComponent,
+      CadastrarAgenteComponent,
+      EditarAgenteComponent,
+      VisualizarVendasComponent
    ],
   imports: [
     BrowserModule,

@@ -32,7 +32,7 @@ export class CadastrarVendaComponent implements OnInit {
       cliente: '',
       status_pagamento: '',
       valor: '',
-      vendidoPor: localStorage.getItem('user'),
+      vendidoPor: localStorage.getItem('nome'),
     });
 
   }

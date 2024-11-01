@@ -12,18 +12,48 @@ export class ClientesComponent implements OnInit {
   public clientes: any
   public clienteById: any
 
-  public teste: any
+  public acesso: any
+  public user: any
+
+  public parametro: any
+  public agenteRelacionado: any
 
   constructor(private service: ServiceService, private toastr: ToastrService) {}
 
 
   ngOnInit() {
+    this.user = localStorage.getItem('user')
 
-    this.getClientes();
+    this.acesso = localStorage.getItem('nivel-acesso')
+
+    if(this.acesso === "Administrador"){
+
+      this.parametro = ""
+      this.agenteRelacionado = ""
+
+      this.getClientes();
+
+    }else if(this.acesso === "Agente" || this.acesso === "Sub-agente"){
+
+      this.parametro = "=="
+      this.agenteRelacionado = this.user
+
+      this.getClientesByAgente();
+
+    }
   }
 
   getClientes(){
     this.service.getCollectionData('clientes').subscribe((data) => {
+
+      this.clientes = data;
+
+    });
+
+  }
+
+  getClientesByAgente(){
+    this.service.getClientesByAgente(this.parametro, this.user).subscribe((data) => {
 
       this.clientes = data;
 
