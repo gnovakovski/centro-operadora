@@ -150,7 +150,7 @@ export class ServiceService {
       );
   }
 
-  getEmailByUserAgente(user: string): Observable<{ email: string; nivel_acesso: string; nome: string } | null> {
+  getEmailByUserAgente(user: string): Observable<{ email: string; nivel_acesso: string; nome: string; status: string } | null> {
     return this.firestore
       .collection("agentes", ref => ref.where('usuario', '==', user))
       .snapshotChanges()
@@ -162,6 +162,7 @@ export class ServiceService {
               email: data.email,
               nivel_acesso: data.nivel_acesso || "",
               nome: data.nome || "",
+              status: data.status || "",
             };
           } else {
             return null;
