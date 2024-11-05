@@ -14,6 +14,8 @@ export class AgentesComponent implements OnInit {
   public acesso: any
   public user: any
 
+  public teste: any
+
   public parametro: any
   public agenteRelacionado: any
 
