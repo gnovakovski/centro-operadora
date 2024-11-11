@@ -22,15 +22,15 @@ export class ViagensLpComponent implements OnInit {
 
     if(this.rota === "receptivos"){
 
-      this.getViagemPorTipoNegocio("Receptivos")
+      this.getViagemPorTipoNegocio("Receptivo")
 
     }else if(this.rota === "circuitos"){
 
-      this.getViagemPorTipoNegocio("Circuitos")
+      this.getViagemPorTipoNegocio("Circuito")
 
     }else if(this.rota === "corporativos"){
 
-      this.getViagemPorTipoNegocio("Corporativos")
+      this.getViagemPorTipoNegocio("Corporativo")
 
     }else if(this.rota === "rodoviario"){
 
