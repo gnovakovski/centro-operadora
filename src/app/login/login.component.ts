@@ -70,11 +70,16 @@ export class LoginComponent implements OnInit {
       if (data) {
         let email = data;
 
-        this.login(email.email, email.nivel_acesso);
+        if(email.status === "true"){
+          this.login(email.email, email.nivel_acesso);
 
-        localStorage.setItem('nivel-acesso', email.nivel_acesso);
-        localStorage.setItem('nome', email.nome);
-        localStorage.setItem('user', login.user);
+          localStorage.setItem('nivel-acesso', email.nivel_acesso);
+          localStorage.setItem('nome', email.nome);
+          localStorage.setItem('user', login.user);
+
+        }else{
+          this.toastr.error('Usuário sem permissão', 'Erro');
+        }
 
       } else {
 
