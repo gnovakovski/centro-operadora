@@ -21,7 +21,7 @@ export class NivelAcessoComponent implements OnInit {
   }
 
   getNivelAcesso(){
-    this.service.getCollectionData('niveis_acesso').subscribe((data) => {
+    this.service.getCollectionData('niveis-acesso').subscribe((data) => {
 
       this.nivel_acesso = data;
 
@@ -31,7 +31,7 @@ export class NivelAcessoComponent implements OnInit {
 
   deletarVenda(id: any){
 
-    this.service.delete(id, "niveis_acesso")
+    this.service.delete(id, "niveis-acesso")
       .then((resp) => {
 
         this.toastr.success('Nível de acesso deletado com sucesso!', 'Deletar nível de acesso');

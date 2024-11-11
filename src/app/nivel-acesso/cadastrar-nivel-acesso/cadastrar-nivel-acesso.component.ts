@@ -68,7 +68,7 @@ export class CadastrarNivelAcessoComponent implements OnInit {
 
   onSubmit(){
 
-    this.service.post(this.form.value, "niveis_acesso")
+    this.service.post(this.form.value, "niveis-acesso")
       .then((resp) => {
         console.log(resp)
         this.toastr.success('Nível de acesso cadastrado com sucesso!', 'Cadastrar nível de acesso');
