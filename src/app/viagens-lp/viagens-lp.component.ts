@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from '../service/service.service';
-
 @Component({
   selector: 'app-viagens-lp',
   templateUrl: './viagens-lp.component.html',
@@ -14,7 +13,7 @@ export class ViagensLpComponent implements OnInit {
   public viagem: any
   public text: any
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private service: ServiceService,) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private service: ServiceService) { }
 
   ngOnInit() {
 

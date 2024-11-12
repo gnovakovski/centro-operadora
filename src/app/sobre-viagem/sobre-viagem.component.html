@@ -20,7 +20,7 @@
       <div>
         {{viagem.data_ida | date:'dd/MM/yyyy'}} a {{viagem.data_volta | date:'dd/MM/yyyy'}}
       </div>
-      <button class="button_whats" (click)="whats()"><img src="assets/icon_whats.png" style="width: 50px;"> SAIBA MAIS</button>
+      <button class="button_whats" (click)="openModal(venda)">SAIBA MAIS</button>
     </div>
 
     <div class="text-infos">
@@ -69,5 +69,91 @@
     </div>
   </div>
 </div>
+
+<ng-template #venda let-modal>
+
+  <div class="header-modal">
+    <div class="title-modal">
+      Seja um Agente!
+    </div>
+  </div>
+  <form [formGroup]="form_venda">
+    <div style="display: flex; align-items: center; flex-direction: column;">
+
+      <div
+        class="content-inputs">
+
+        <div class="input-label">
+          <label for="">Viagem</label>
+          <select formControlName="viagem" style="width: 350px;">
+            <option value="">Selecione uma opção</option>
+            <option value="{{item.titulo}}" *ngFor="let item of viagens">{{item.titulo}}</option>
+          </select>
+        </div>
+
+        <div class="input-label">
+          <label for="">Usuário Agente</label>
+          <select formControlName="forma_pagamento" style="width: 350px;">
+            <option value="">Selecione uma opção</option>
+            <option value="Cartão Minha Excursão">Cartão Minha Excursão</option>
+            <option value="Cartão próprio">Cartão próprio</option>
+            <option value="Crédito à vista">Crédito à vista</option>
+            <option value="Crédito parcelado">Crédito parcelado</option>
+            <option value="Débito">Débito</option>
+            <option value="Dinheiro">Dinheiro</option>
+            <option value="Pix">Pix</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div
+        class="content-inputs">
+
+        <div class="input-label">
+          <label for="">Data da reserva</label>
+          <input style="width: 350px !important;" type="date" formControlName="data_reserva">
+        </div>
+
+        <div class="input-label">
+          <label for="">Data do pagamento</label>
+          <input style="width: 350px !important;" type="date" formControlName="data_pagamento">
+        </div>
+
+      </div>
+
+      <div
+        class="content-inputs">
+
+        <div class="input-label">
+          <label for="">Clientes</label>
+          <select formControlName="cliente" style="width: 350px;">
+            <option value="">Selecione uma opção</option>
+            <option value="{{item.nome}}" *ngFor="let item of clientes">{{item.nome}}</option>
+          </select>
+        </div>
+
+        <div class="input-label">
+          <label for="">Status do pagamento</label>
+        <select formControlName="status_pagamento" style="width: 350px;">
+          <option value="">Selecione uma opção</option>
+          <option value="Pago">Pago</option>
+          <option value="Em andamento">Em andamento</option>
+          <option value="Sem pagamento">Sem pagamento</option>
+        </select>
+        </div>
+
+      </div>
+
+    </div>
+
+  </form>
+
+  <div class="footer-modal">
+    <button class="btn-voltar" (click)="fecharModal()">Voltar</button>
+    <button class="btn-salvar" (click)="post()">Salvar</button>
+  </div>
+
+</ng-template>
 
 <app-footer></app-footer>
