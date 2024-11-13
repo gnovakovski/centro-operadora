@@ -34,6 +34,8 @@ export class SobreViagemComponent implements OnInit {
   public viagens: any
   public clientes: any;
 
+  public localStorage: any
+
   modalRef: NgbModalRef | undefined;
 
   fotos: Foto[] = [];
@@ -42,6 +44,8 @@ export class SobreViagemComponent implements OnInit {
   constructor(private service: ServiceService, private activatedRoute: ActivatedRoute, public formBuilder: FormBuilder, private toastr: ToastrService, public modalService: NgbModal) { }
 
   ngOnInit() {
+
+    this.localStorage = localStorage.getItem('nome')
 
     this.form_venda = this.formBuilder.group({
       viagem: '',
@@ -89,18 +93,35 @@ export class SobreViagemComponent implements OnInit {
 
   post() {
 
+    this.onSubmit();
+    this.onSubmitVenda();
+
+  }
+
+  onSubmitVenda() {
+
+    this.form_venda.value.valor = this.form_venda.value.valor.replace(/[.,]/g, '');
+
+    let valorNumerico = Number(this.form_venda.value.valor)/ 100;
+
+    let valorFormatado = valorNumerico.toLocaleString('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+    this.form_venda.value.valor = valorFormatado;
+
+    this.form_venda.value.cliente = this.form_cliente.value.nome;
+
     this.service.post(this.form_venda.value, "vendas")
       .then((resp) => {
-
-        this.toastr.success('Venda registrada com sucesso!', 'Cadastrar');
+        console.log(resp)
+        this.toastr.success('Venda cadastrada com sucesso!', 'Cadastrar venda');
 
       })
       .catch((error) => {
         this.toastr.error(error, 'Erro');
       });
-
-      this.onSubmit();
-
   }
 
   onSubmit() {
@@ -219,6 +240,9 @@ export class SobreViagemComponent implements OnInit {
     this.service.getById(id, "viagens").subscribe(data => {
 
       this.viagem = data;
+
+      this.form_venda.controls['viagem'].setValue(this.viagem.titulo);
+      this.form_venda.controls['valor'].setValue(this.viagem.preco);
 
       if (this.viagem.foto1) {
         this.service.getImageUrl(this.viagem.foto1).subscribe((url) => {
