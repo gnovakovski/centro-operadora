@@ -16,7 +16,6 @@ export class ViagensComponent implements OnInit {
   public acesso: any
 
   public loading: boolean = false
-  toastr: any;
 
   constructor(private service: ServiceService, private toastr: ToastrService) { }
 
