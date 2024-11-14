@@ -75,7 +75,7 @@ export class EditarNivelAcessoComponent implements OnInit {
 
   onSubmit(){
 
-    this.service.update(this.nivelAcessoId, this.form.value, "niveis_acesso")
+    this.service.update(this.nivelAcessoId, this.form.value, "niveis-acesso")
       .then((resp) => {
         console.log(resp)
         this.toastr.success('Nível de acesso editado com sucesso!', 'Editar nível de acesso');
@@ -90,7 +90,7 @@ export class EditarNivelAcessoComponent implements OnInit {
 
   getNivelAcessoByIdß(id: any) {
 
-    this.service.getById(id, "niveis_acesso").pipe(take(1)).subscribe(data => {
+    this.service.getById(id, "niveis-acesso").pipe(take(1)).subscribe(data => {
       this.nivelAcesso = data;
 
       this.form.controls['nome'].setValue(this.nivelAcesso.nome);

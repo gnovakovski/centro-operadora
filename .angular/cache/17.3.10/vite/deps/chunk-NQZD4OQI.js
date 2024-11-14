@@ -2,10 +2,6 @@ import {
   firebase
 } from "./chunk-6ZEOJMXL.js";
 import {
-  getApps,
-  registerVersion
-} from "./chunk-75LRPFP7.js";
-import {
   Inject,
   Injectable,
   InjectionToken,
@@ -32,6 +28,10 @@ import {
   subscribeOn,
   tap
 } from "./chunk-JHNZ4YGL.js";
+import {
+  getApps,
+  registerVersion
+} from "./chunk-75LRPFP7.js";
 
 // node_modules/firebase/app/dist/esm/index.esm.js
 var name = "firebase";
@@ -452,4 +452,4 @@ firebase/compat/app/dist/esm/index.esm.js:
    * limitations under the License.
    *)
 */
-//# sourceMappingURL=chunk-GW75ODSE.js.map
+//# sourceMappingURL=chunk-NQZD4OQI.js.map

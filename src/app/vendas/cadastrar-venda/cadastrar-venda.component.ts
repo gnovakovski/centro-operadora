@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 export class CadastrarVendaComponent implements OnInit {
 
   public viagens: any
-  public form: any;
   public clientes: any;
+  public form: any;
 
   constructor(private router: Router, private service: ServiceService, public formBuilder: FormBuilder, private toastr: ToastrService) {}
 

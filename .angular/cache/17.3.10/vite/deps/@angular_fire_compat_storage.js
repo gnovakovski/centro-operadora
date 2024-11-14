@@ -1,4 +1,4 @@
-import "./chunk-273GPJBX.js";
+import "./chunk-4TCE5GAB.js";
 import {
   FIREBASE_APP_NAME,
   FIREBASE_OPTIONS,
@@ -9,19 +9,10 @@ import {
   ɵAppCheckInstances,
   ɵcacheInstance,
   ɵfirebaseAppFactory
-} from "./chunk-GW75ODSE.js";
+} from "./chunk-NQZD4OQI.js";
 import {
   firebase
 } from "./chunk-6ZEOJMXL.js";
-import {
-  Component,
-  FirebaseError,
-  SDK_VERSION,
-  _registerComponent,
-  createMockUserToken,
-  getModularInstance,
-  registerVersion
-} from "./chunk-75LRPFP7.js";
 import {
   AsyncPipe
 } from "./chunk-6IGYWKOD.js";
@@ -56,6 +47,15 @@ import {
   switchMap,
   tap
 } from "./chunk-JHNZ4YGL.js";
+import {
+  Component,
+  FirebaseError,
+  SDK_VERSION,
+  _registerComponent,
+  createMockUserToken,
+  getModularInstance,
+  registerVersion
+} from "./chunk-75LRPFP7.js";
 import "./chunk-BW72DQ5E.js";
 import {
   __async

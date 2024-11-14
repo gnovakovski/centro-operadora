@@ -18,7 +18,7 @@
   </div>
   <div class="content-button-header">
     <img src="assets/icon_whats.png" style="width: 65px; cursor: pointer;" (click)="whats()">
-    <button>ÁREA DO AGENTE</button>
+    <button (click)="openModal(agente)">SEJA UM AGENTE</button>
     <button routerLink="/login">LOGIN</button>
   </div>
 
@@ -48,7 +48,58 @@
   </a>
   <div class="content-button-header">
     <img src="assets/icon_whats.png" style="width: 65px; cursor: pointer;" (click)="whats()">
-    <button>ÁREA DO AGENTE</button>
+    <button (click)="openModal(agente)">SEJA UM AGENTE</button>
     <button routerLink="/login">LOGIN</button>
   </div>
 </div>
+
+<ng-template #agente let-modal>
+
+  <div class="header-modal">
+    <div class="title-modal">
+      Seja um Agente!
+    </div>
+  </div>
+  <form [formGroup]="form_agente">
+    <div style="display: flex; align-items: center; flex-direction: column;">
+
+      <div
+        class="content-inputs">
+
+        <div class="input-label">
+          <label for="">Nome</label>
+          <input style="width: 350px !important;" type="text" formControlName="nome">
+        </div>
+
+        <div class="input-label">
+          <label for="">Usuário Agente</label>
+          <input style="width: 350px !important;" type="text" formControlName="usuario">
+        </div>
+
+      </div>
+
+      <div
+        class="content-inputs">
+
+        <div class="input-label">
+          <label for="">E-mail</label>
+          <input style="width: 350px !important;" type="text" formControlName="email">
+        </div>
+
+        <div class="input-label">
+          <label for="">Senha</label>
+          <input style="width: 350px !important;" type="password" formControlName="senha">
+        </div>
+
+      </div>
+
+    </div>
+
+  </form>
+
+  <div class="footer-modal">
+    <button class="btn-voltar" (click)="fecharModal()">Voltar</button>
+    <button class="btn-salvar" (click)="post()">Salvar</button>
+  </div>
+
+</ng-template>

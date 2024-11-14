@@ -66,7 +66,7 @@ export class EditarUsuarioComponent implements OnInit {
   }
 
   getNivelAcesso(){
-    this.service.getCollectionData('niveis_acesso').subscribe((data) => {
+    this.service.getCollectionData('niveis-acesso').subscribe((data) => {
 
       this.nivel_acesso = data;
 
