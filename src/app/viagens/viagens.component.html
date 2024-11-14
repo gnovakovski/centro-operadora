@@ -14,6 +14,7 @@
           <th style="background-color: #F96C1B;" scope="col">Data de retorno</th>
           <th style="background-color: #F96C1B;" scope="col">Vagas</th>
           <th style="background-color: #F96C1B;" scope="col">Valor</th>
+          <th style="background-color: #F96C1B;" scope="col">Valor Parcela</th>
           <th style="background-color: #F96C1B;" scope="col">Ações</th>
         </tr>
       </thead>
@@ -24,11 +25,12 @@
           <td>{{item.data_volta | date:'dd-MM-yyyy'}}</td>
           <td>{{item.vagas}}</td>
           <td>R$ {{item.preco}}</td>
+          <td>{{item.valor_parcela}}</td>
           <td>
             <button class="btn btn-primary btn-sm me-2" routerLink="editar-produto/{{item.id}}">
               <i class="bi bi-pencil"></i> Editar
             </button>
-            <button class="btn btn-danger btn-sm" >
+            <button class="btn btn-danger btn-sm" (click)="deletaProduto(item.id)" *ngIf="acesso !== 'Administrador'" >
               <i class="bi bi-trash"></i> Excluir
             </button>
           </td>

@@ -12,8 +12,10 @@ export class ViagensComponent implements OnInit {
 
   public viagens: any
   public img: any
+  public acesso: any
 
   public loading: boolean = false
+  toastr: any;
 
   constructor(private service: ServiceService) { }
 
@@ -21,6 +23,29 @@ export class ViagensComponent implements OnInit {
 
       this.getViagens();
 
+  }
+
+  deletaProduto(id: any){
+
+    this.service.delete(id, "viagens")
+      .then((resp) => {
+
+        this.toastr.success('Produto deletado com sucesso!', 'Deletar produto');
+
+        this.getVendasByParams(this.parametro, this.vendidoPor);
+      })
+      .catch((error) => {
+        this.toastr.error(error, 'Erro');
+      });
+}
+  vendidoPor(parametro: (parametro: any, vendidoPor: any) => void, vendidoPor: any) {
+    throw new Error('Method not implemented.');
+  }
+  parametro(parametro: any, vendidoPor: any) {
+    throw new Error('Method not implemented.');
+  }
+  getVendasByParams(parametro: any, vendidoPor: any) {
+    throw new Error('Method not implemented.');
   }
 
   getViagens(){
