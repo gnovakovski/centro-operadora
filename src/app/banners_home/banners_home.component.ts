@@ -25,6 +25,13 @@ export class Banners_homeComponent implements OnInit {
   public file5: any
   public file6: any
 
+  public erro1: boolean = false
+  public erro2: boolean = false
+  public erro3: boolean = false
+  public erro4: boolean = false
+  public erro5: boolean = false
+  public erro6: boolean = false
+
   public banners: any
 
   constructor(private router: Router, private service: ServiceService, public formBuilder: FormBuilder, private toastr: ToastrService) { }
@@ -42,7 +49,14 @@ export class Banners_homeComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = () => {
         this.banner1 = reader.result;
-        this.deleteAndUpdate(this.file1, this.banners.banner1);
+
+        if(this.erro1){
+          this.update(this.file1, this.banners.banner1)
+        }else{
+
+          this.deleteAndUpdate(this.file1, this.banners.banner1);
+        }
+
       };
       reader.readAsDataURL(this.file1);
     }
@@ -121,44 +135,57 @@ export class Banners_homeComponent implements OnInit {
       this.service.getImageUrl(this.banners.banner1).subscribe((url) => {
 
         this.banner1 = url
-
+        
+      }, error => {
+        this.erro1 = true
       });
 
       this.service.getImageUrl(this.banners.banner2).subscribe((url) => {
 
-        this.banner2 = url;
-
+        this.banner2 = url
+        
+      }, error => {
+        this.erro2 = true
       });
 
 
       this.service.getImageUrl(this.banners.banner3).subscribe((url) => {
 
-        this.banner3 = url;
-
+        this.banner3 = url
+        
+      }, error => {
+        this.erro3 = true
       });
 
       this.service.getImageUrl(this.banners.banner4).subscribe((url) => {
 
-        this.banner4 = url;
-
+        this.banner4 = url
+        
+      }, error => {
+        this.erro4 = true
       });
 
       this.service.getImageUrl(this.banners.banner5).subscribe((url) => {
 
-        this.banner5 = url;
-
+        this.banner5 = url
+        
+      }, error => {
+        this.erro5 = true
       });
 
       this.service.getImageUrl(this.banners.banner6).subscribe((url) => {
 
-        this.banner6 = url;
-
+        this.banner6 = url
+        
+      }, error => {
+        this.erro6 = true
       });
 
     });
   }
 
   deleteAndUpdate(file: any, name: any) {
+    
     this.service.removerFoto(name).then(() => {
 
         const fileName = name;
@@ -171,6 +198,18 @@ export class Banners_homeComponent implements OnInit {
       })
       .catch(error => {
       });
+  }
+
+  update(file: any, name: any){
+
+    const fileName = name;
+
+    this.service.uploadImage(file, fileName).subscribe((downloadUrl) => {
+      this.toastr.success('Banner editado com sucesso!', 'Editar banner');
+    }, error => {
+      this.toastr.success(error, 'Erro ao editar o banner');
+    });
+
   }
 
 }
