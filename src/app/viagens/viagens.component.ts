@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service/service.service';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-viagens',
@@ -17,7 +18,7 @@ export class ViagensComponent implements OnInit {
   public loading: boolean = false
   toastr: any;
 
-  constructor(private service: ServiceService) { }
+  constructor(private service: ServiceService, private toastr: ToastrService) { }
 
   ngOnInit() {
 
@@ -56,5 +57,19 @@ export class ViagensComponent implements OnInit {
     });
 
   }
+
+  deletarProduto(id: any){
+
+    this.service.delete(id, "viagens")
+      .then((resp) => {
+
+        this.toastr.success('Produto deletada com sucesso!', 'Deletar produto');
+
+        this.getViagens();
+      })
+      .catch((error) => {
+        this.toastr.error(error, 'Erro');
+      });
+}
 
 }
