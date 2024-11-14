@@ -1,5 +1,5 @@
 html, body{
-  background-image: url('../src/assets/fundo.avif');
+  background-color: white;
   overflow-x: hidden;
   background-size: cover; /* Faz com que a imagem cubra todo o espaço */
   background-position: center; /* Centraliza a imagem */

@@ -1,7 +1,7 @@
 <div *ngIf="!carregandoImagens" class="content-carrossel">
   <ngx-slick-carousel #slickModal="slick-carousel" class="container" [config]="slideConfig" style="width: 1150px !important;">
     <div ngxSlickItem class="carousel" *ngFor="let card of viagens">
-      <div class="content-card">
+      <div class="content-card" routerLink="/inicio/{{card.id}}" style="cursor: pointer;">
         <div style="position: relative;">
           <img [src]="card.foto" alt="">
           <div class="overlay" *ngIf="card.vagas < 6 && card.vagas > 0">

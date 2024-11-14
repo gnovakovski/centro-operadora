@@ -2,7 +2,7 @@
 
   <ngx-slick-carousel #slickModal="slick-carousel" class="container" [config]="slideConfig" style="width: 750px !important;">
     <div ngxSlickItem class="carousel" *ngFor="let card of viagens">
-      <div class="content-card">
+      <div class="content-card" routerLink="/inicio/{{card.id}}" style="cursor: pointer;">
         <div style="position: relative;">
           <img [src]="card.foto" alt="">
           <div class="overlay" *ngIf="card.vagas < 6 && card.vagas > 0">
@@ -15,8 +15,8 @@
         <div class="box-card">
           <div class="card-content">
             <h4>{{card.titulo}}</h4>
-            <p>{{(card.data_ida | date:'dd-MM-yyyy') + ' a ' + (card.data_volta | date:'dd-MM-yyyy')}}</p>
-            <p class="text-center">R$ {{card.preco}}<br>{{card.parcelamento}}</p>
+            <p class="mt-2" style="font-size: 18px;">{{(card.data_ida | date:'dd/MM/yyyy')}} {{(card.data_volta !== '' ?'a ' + ( card.data_volta | date:'dd/MM/yyyy') : '')}}</p>
+            <p style="font-size: 18px;" class="text-center">R$ {{card.preco}}<br>{{card.parcelamento}}x de R${{card.valor_parcela}} sem juros</p>
           </div>
           <button routerLink="/inicio/{{card.id}}">SAIBA MAIS SOBRE A VIAGEM</button>
         </div>
